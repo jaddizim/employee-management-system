@@ -18,9 +18,9 @@ class ListEmployeeComponent extends Component {
     render() {
         return (
             <div>
-                <h2 className="text-center">Lista de Funcionários</h2>
-                <div className="row text-center border border-secondary rounded overflow-hidden">
-                    <table className="table table-striped table-light">
+                <h2 className = "text-center">Lista de Funcionários</h2>
+                <div className = "row text-center border border-secondary rounded overflow-hidden">
+                    <table className = "table table-striped table-light">
 
                         <thead>
                             <tr>
@@ -42,6 +42,7 @@ class ListEmployeeComponent extends Component {
                             )
                             }
                         </tbody>
+                        
                     </table>
                 </div>
             </div>
