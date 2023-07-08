@@ -19,7 +19,7 @@ class ListEmployeeComponent extends Component {
         return (
             <div>
                 <h2 className = "text-center">Lista de Funcionários</h2>
-                <div className = "row text-center border border-secondary rounded overflow-hidden">
+                <div className = "row text-center border rounded overflow-hidden">
                     <table className = "table table-striped table-light">
 
                         <thead>

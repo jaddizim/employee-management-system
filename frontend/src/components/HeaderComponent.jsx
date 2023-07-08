@@ -5,8 +5,8 @@ class HeaderComponent extends Component {
         return (
             <div>
                 <header>
-                    <nav className = "navbar navbar-expand-md navbar-dark bg-dark">
-                        <div><a href = "https://github.com/jaddizim" className='navbar-brand'>Sistema de Funcionários</a></div>
+                    <nav className="header">
+                        <div><a href="https://github.com/jaddizim" className='navbar-brand'>Sistema de Gestão de Funcionários</a></div>
                     </nav>
                 </header>
             </div>

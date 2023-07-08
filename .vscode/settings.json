@@ -1,9 +1,22 @@
 {
-    "editor.fontFamily": "JetBrains Mono, Consolas, 'Courier New', monospace",
-    "editor.lineHeight": 1.8,
-    "editor.fontSize": 12,
     "workbench.tree.renderIndentGuides": "onHover",
     "workbench.tree.indent": 20,
     "terminal.integrated.fontFamily": "",
-    "terminal.integrated.fontSize": 10
+    "terminal.integrated.fontSize": 10,
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "TestDB",
+            "username": "root",
+            "database": "employee_management_system"
+        }
+    ]
 }
