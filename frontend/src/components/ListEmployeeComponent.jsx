@@ -1,53 +1,52 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import EmployeeService from '../services/EmployeeService';
+import { Link } from 'react-router-dom';
 
-class ListEmployeeComponent extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            employees: []
-        }
-    }
+const ListEmployeeComponent = () => {
 
-    componentDidMount(){
-        EmployeeService.getEmployees().then((res) => {
-            this.setState({employees: res.data})
-        });
-    }
+    const [employees, setEmployees] = useState([])
 
-    render() {
-        return (
-            <div>
-                <h2 className = "text-center">Lista de Funcionários</h2>
-                <div className = "row text-center border rounded overflow-hidden">
-                    <table className = "table table-striped table-light">
+    useEffect(() => {
 
-                        <thead>
-                            <tr>
-                                <th>Nome</th>
-                                <th>Sobrenome</th>
-                                <th>Email</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
+        EmployeeService.getAllEmployees().then((response) => {
+            setEmployees(response.data)
+            console.log(response.data);
+        }).catch(error => {
+            console.log(error);
+        })
+    }, [])
 
-                        <tbody>
-                            {this.state.employees.map(
+    return (
+        <div className='container'>
+            <h2 className='text-center'>Lista de Funcionários</h2>
+            <Link to="/add-employee" className='btn btn-primary mb-2'>Inserir funcionário</Link>
+            <div className='row text-center border rounded border-info overflow-hidden'>
+                <table className='table table-hover'>
+                    <thead className='table-info'>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nome</th>
+                            <th>Sobrenome</th>
+                            <th>E-mail</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {
+                            employees.map(
                                 employee =>
                                     <tr key={employee.id}>
+                                        <td>{employee.id}</td>
                                         <td>{employee.firstName}</td>
                                         <td>{employee.lastName}</td>
                                         <td>{employee.emailId}</td>
                                     </tr>
                             )
-                            }
-                        </tbody>
-                        
-                    </table>
-                </div>
+                        }
+                    </tbody>
+                </table>
             </div>
-        );
-    }
+        </div>
+    )
 }
 
 export default ListEmployeeComponent;
