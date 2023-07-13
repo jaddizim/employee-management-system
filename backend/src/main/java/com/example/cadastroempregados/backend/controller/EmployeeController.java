@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/api/v1/")
+@RequestMapping("/api/v1/employees")
 public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;
 
     //Get all employees
-    @GetMapping("/employees")
+    @GetMapping
     public List<Employee> getAllEmployees(){
         return employeeRepository.findAll();
     }

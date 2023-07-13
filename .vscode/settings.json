@@ -18,5 +18,6 @@
             "username": "root",
             "database": "employee_management_system"
         }
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "automatic"
 }
