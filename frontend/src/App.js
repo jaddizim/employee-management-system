@@ -7,9 +7,9 @@ import FooterComponent from './components/FooterComponent';
 
 function App() {
   return (
-    <div>
+    <div className='bg-secondary vh-100'>
       <HeaderComponent />
-      <div className='container'>
+      <div>
         <Router>
           <Routes>
             <Route exact path="/" element={<ListEmployeeComponent />} />

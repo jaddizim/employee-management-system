@@ -18,16 +18,16 @@ const ListEmployeeComponent = () => {
 
     return (
         <div className='container'>
-            <h2 className='text-center'>Lista de Funcionários</h2>
-            <Link to="/add-employee" className='btn btn-primary mb-2'>Inserir funcionário</Link>
-            <div className='row text-center border rounded border-info overflow-hidden'>
-                <table className='table table-hover'>
-                    <thead className='table-info'>
+            <h2 className='text-center text-light mt-4'>Lista de Funcionários</h2>
+            <div>
+                <Link to="/add-employee" className='btn btn-primary mt-3 mb-4 border-2 border-info'>Inserir funcionário</Link>
+                <table className='table table-hover text-center rounded shadow-lg overflow-hidden'>
+                    <thead className='table-secondary'>
                         <tr>
                             <th>Id</th>
-                            <th>Nome</th>
-                            <th>Sobrenome</th>
-                            <th>E-mail</th>
+                            <th className='text-start'>Nome</th>
+                            <th className='text-start'>Sobrenome</th>
+                            <th className='text-start'>E-mail</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -35,10 +35,10 @@ const ListEmployeeComponent = () => {
                             employees.map(
                                 employee =>
                                     <tr key={employee.id}>
-                                        <td>{employee.id}</td>
-                                        <td>{employee.firstName}</td>
-                                        <td>{employee.lastName}</td>
-                                        <td>{employee.emailId}</td>
+                                        <td className='text-secondary'>{employee.id}</td>
+                                        <td className='text-secondary text-start'>{employee.firstName}</td>
+                                        <td className='text-secondary text-start'>{employee.lastName}</td>
+                                        <td className='text-secondary text-start'>{employee.emailId}</td>
                                     </tr>
                             )
                         }
