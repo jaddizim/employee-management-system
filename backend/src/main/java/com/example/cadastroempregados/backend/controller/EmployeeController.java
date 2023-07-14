@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,6 +44,21 @@ public class EmployeeController {
     @PostMapping
     public Employee insertEmployee(@RequestBody Employee employee) {
         return employeeRepository.save(employee);
+    }
+
+    // Update an employee
+    @PutMapping("{id}")
+    public ResponseEntity<Employee> updateEmployee(@PathVariable Long id, @RequestBody Employee newEmployee) {
+
+        Employee employee = employeeRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Funcionário não encontrado com o id " + id));
+
+        employee.setFirstName(newEmployee.getFirstName());
+        employee.setLastName(newEmployee.getLastName());
+        employee.setEmailId(newEmployee.getEmailId());
+        employeeRepository.save(employee);
+
+        return ResponseEntity.ok(employee);
     }
 
 }
