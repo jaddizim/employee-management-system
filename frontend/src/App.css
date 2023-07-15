@@ -7,13 +7,12 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+padding-left: 30px;
   min-height: 70px;
   background-color: rgb(50, 50, 50);
   color: rgb(200, 200, 200);
   border-block-end-style: solid;
   border-block-end-width: 1px;
-  box-shadow: 0 10px 50px darkgrey;
 }
 
 .footer {
@@ -28,5 +27,21 @@
   color: rgb(200, 200, 200);
   border-block-start-style: solid;
   border-block-start-width: 1px;
-  box-shadow: 0 -10px 80px rgb(200, 200, 200);
+}
+
+.button {
+  text-decoration: none;
+  color: white;
+  background: rgb(40, 215, 220);
+  border: 1.5px solid rgb(40, 215, 220);
+  padding: 0.8em;
+  border-radius: 0.8em;
+  box-shadow: 0 10px 30px darkgrey;
+  transition: all 0.5s;
+}
+
+.button:hover {
+  background: rgb(40, 170, 180);
+  border: 1.5px solid gainsboro;
+  box-shadow: 0 10px 50px gainsboro;
 }
