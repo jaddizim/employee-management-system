@@ -7,7 +7,7 @@ import FooterComponent from './components/FooterComponent';
 
 function App() {
   return (
-    <div className='bg-secondary vh-100'>
+    <div className='bg-white vh-100'>
       <HeaderComponent />
       <div>
         <Router>
@@ -15,6 +15,7 @@ function App() {
             <Route exact path="/" element={<ListEmployeeComponent />} />
             <Route path="/employees" element={<ListEmployeeComponent />} />
             <Route path="/add-employee" element={<InsertEmployeeComponent />} />
+            <Route path="/edit-employee/:id" element={<InsertEmployeeComponent />} />
           </Routes>
         </Router>
       </div>

@@ -18,9 +18,9 @@ const ListEmployeeComponent = () => {
 
   return (
     <div className='container'>
-      <h2 className='text-center text-light mt-4'>Lista de Funcionários</h2>
+      <h2 className='text-center text-secondary mt-4'>Lista de Funcionários</h2>
       <div>
-        <div className='pt-5 pb-5'>
+        <div className='pt-2 pb-4'>
           <Link to="/add-employee" className='button'>Inserir funcionário</Link>
         </div>
         <table className='table table-hover text-center rounded shadow-lg overflow-hidden'>
@@ -30,6 +30,7 @@ const ListEmployeeComponent = () => {
               <th className='text-start'>Nome</th>
               <th className='text-start'>Sobrenome</th>
               <th className='text-start'>E-mail</th>
+              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
@@ -41,6 +42,9 @@ const ListEmployeeComponent = () => {
                     <td className='text-secondary text-start'>{employee.firstName}</td>
                     <td className='text-secondary text-start'>{employee.lastName}</td>
                     <td className='text-secondary text-start'>{employee.emailId}</td>
+                    <td>
+                      <Link className='btn btn-info' to={`/edit-employee/${employee.id}`}>Atualizar</Link>
+                    </td>
                   </tr>
               )
             }
