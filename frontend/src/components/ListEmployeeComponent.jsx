@@ -27,9 +27,9 @@ const ListEmployeeComponent = () => {
           <thead className='table-secondary'>
             <tr>
               <th>Id</th>
-              <th className='text-start'>Nome</th>
-              <th className='text-start'>Sobrenome</th>
-              <th className='text-start'>E-mail</th>
+              <th>Nome</th>
+              <th>Sobrenome</th>
+              <th>E-mail</th>
               <th>Ações</th>
             </tr>
           </thead>
@@ -39,10 +39,10 @@ const ListEmployeeComponent = () => {
                 employee =>
                   <tr key={employee.id}>
                     <td className='text-secondary align-middle'>{employee.id}</td>
-                    <td className='text-secondary text-start align-middle'>{employee.firstName}</td>
-                    <td className='text-secondary text-start align-middle'>{employee.lastName}</td>
-                    <td className='text-secondary text-start align-middle'>{employee.emailId}</td>
-                    <td>
+                    <td className='text-secondary align-middle'>{employee.firstName}</td>
+                    <td className='text-secondary align-middle'>{employee.lastName}</td>
+                    <td className='text-secondary align-middle'>{employee.emailId}</td>
+                    <td className='text-secondary align-middle'>
                       <Link className='btn btn-outline-warning btn-sm align-middle' to={`/edit-employee/${employee.id}`}>Atualizar</Link>
                     </td>
                   </tr>

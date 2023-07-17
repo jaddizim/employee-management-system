@@ -51,14 +51,20 @@ const InsertEmployeeComponent = () => {
     }
   }
 
+  const submit = () => {
+    if (id) {
+      return "Atualizar";
+    } else {
+      return "Inserir";
+    }
+  }
+
   return (
     <div>
       <div className='mt-5 container'>
         <div className='p-4 card col-md-6 offset-md-3 offset-md-3 shadow-lg'>
           <div className='m-4'>
-            {
-              title()
-            }
+            {title()}
             <div>
               <form>
                 <div className='form-group mt-4 mb-2'>
@@ -102,10 +108,10 @@ const InsertEmployeeComponent = () => {
 
                 <div className='d-flex pt-4 pb-4 justify-content-between'>
                   <div>
-                    <button className='btn btn-success shadow' onClick={(e) => saveOrUpdateEmployee(e)}>OK</button>
+                    <button className='btn btn-sm btn-success shadow' onClick={(e) => saveOrUpdateEmployee(e)}>{submit()}</button>
                   </div>
                   <div>
-                    <Link to="/employees" className='btn btn-danger shadow'>Cancelar</Link>
+                    <Link to="/employees" className='btn btn-danger btn-sm shadow'>Cancelar</Link>
                   </div>
                 </div>
 
