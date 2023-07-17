@@ -11,17 +11,26 @@ const InsertEmployeeComponent = () => {
   const navigate = useNavigate();
   const { id } = useParams();
 
-  const saveEmployee = (e) => {
+  const saveOrUpdateEmployee = (e) => {
     e.preventDefault();
 
     const employee = { firstName, lastName, emailId }
 
-    EmployeeService.insertEmployee(employee).then((response) => {
-      console.log(response.data);
-      navigate('/employees');
-    }).catch(error => {
-      console.log(error);
-    })
+    if (id) {
+      EmployeeService.updateEmployee(id, employee).then((response) => {
+        console.log(response.data);
+        navigate('/employees');
+      }).catch(error => {
+        console.log(error);
+      })
+    } else {
+      EmployeeService.insertEmployee(employee).then((response) => {
+        console.log(response.data);
+        navigate('/employees');
+      }).catch(error => {
+        console.log(error);
+      })
+    }
   }
 
   useEffect(() => {
@@ -36,72 +45,72 @@ const InsertEmployeeComponent = () => {
 
   const title = () => {
     if (id) {
-      return <h1 className="text-center">Alterar Dados</h1>
+      return <h2 className="text-secondary text-center">Alterar Dados</h2>
     } else {
-      return <h1 className="text-center">Inserir Funcionário</h1>
+      return <h2 className="text-secondary text-center">Inserir Funcionário</h2>
     }
   }
 
   return (
     <div>
-      <br />
-      <br />
-      <div className="container">
-        <div className="card col-md-6 offset-md-3 offset-md-3">
-          <div className="card-body">
+      <div className='mt-5 container'>
+        <div className='p-4 card col-md-6 offset-md-3 offset-md-3 shadow-lg'>
+          <div className='m-4'>
             {
               title()
             }
-            <br />
-            <form>
-              <div className="form-group mb-2">
-                <label className="form-label"> Nome:</label>
-                <input
-                  type="text"
-                  placeholder="Digite o nome"
-                  name="firstName"
-                  className="form-control"
-                  value={firstName}
-                  onChange={(e) => setFirstName(e.target.value)}
-                >
-                </input>
-              </div>
-
-              <div className="form-group mb-2">
-                <label className="form-label"> Sobrenome:</label>
-                <input
-                  type="text"
-                  placeholder="Digite o sobrenome"
-                  name="lastName"
-                  className="form-control"
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                >
-                </input>
-              </div>
-
-              <div className="form-group mb-2">
-                <label className="form-label"> Email:</label>
-                <input
-                  type="email"
-                  placeholder="Digite o e-mail"
-                  name="emailId"
-                  className="form-control"
-                  value={emailId}
-                  onChange={(e) => setEmailId(e.target.value)}
-                >
-                </input>
-              </div>
-              <br />
-              <div className='row justify-content-between'>
-                <div className='col-2'>
-                  <button className="btn btn-success" onClick={(e) => saveEmployee(e)}>Inserir Funcionário</button>
+            <div>
+              <form>
+                <div className='form-group mt-4 mb-2'>
+                  <label className='form-label text-secondary fw-bold'> Nome:</label>
+                  <input
+                    type='text'
+                    placeholder='Digite o nome'
+                    name='firstName'
+                    className='form-control text-secondary'
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                  >
+                  </input>
                 </div>
-                <div className='col-2'>
-                  <Link to="/employees" className='btn btn-danger'>Cancelar</Link>
+
+                <div className='form-group mt-4 mb-2'>
+                  <label className='form-label text-secondary fw-bold'> Sobrenome:</label>
+                  <input
+                    type='text'
+                    placeholder='Digite o sobrenome'
+                    name='lastName'
+                    className='form-control text-secondary'
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                  >
+                  </input>
                 </div>
-              </div>
-            </form>
+
+                <div className='form-group mt-4 mb-2'>
+                  <label className='form-label text-secondary fw-bold'> Email:</label>
+                  <input
+                    type='email'
+                    placeholder='Digite o e-mail'
+                    name='emailId'
+                    className='form-control text-secondary'
+                    value={emailId}
+                    onChange={(e) => setEmailId(e.target.value)}
+                  >
+                  </input>
+                </div>
+
+                <div className='d-flex pt-4 pb-4 justify-content-between'>
+                  <div>
+                    <button className='btn btn-success shadow' onClick={(e) => saveOrUpdateEmployee(e)}>OK</button>
+                  </div>
+                  <div>
+                    <Link to="/employees" className='btn btn-danger shadow'>Cancelar</Link>
+                  </div>
+                </div>
+
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -109,4 +118,4 @@ const InsertEmployeeComponent = () => {
   )
 }
 
-export default InsertEmployeeComponent
+export default InsertEmployeeComponent;

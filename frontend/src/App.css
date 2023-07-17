@@ -28,19 +28,3 @@
   border-block-start-style: solid;
   border-block-start-width: 1px;
 }
-
-.button {
-  text-decoration: none;
-  font-size: smaller;
-  color: white;
-  background: rgb(40, 215, 220);
-  border: 1.5px solid rgb(40, 215, 220);
-  padding: 0.7em;
-  border-radius: 0.5em;
-  transition: all 0.2s ease-in-out;
-}
-
-.button:hover {
-  background: rgb(60, 240, 255);
-  box-shadow: 0 5px 10px gainsboro;
-}

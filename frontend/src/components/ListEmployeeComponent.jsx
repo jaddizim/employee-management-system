@@ -21,7 +21,7 @@ const ListEmployeeComponent = () => {
       <h2 className='text-center text-secondary mt-4'>Lista de Funcionários</h2>
       <div>
         <div className='pt-2 pb-4'>
-          <Link to="/add-employee" className='button'>Inserir funcionário</Link>
+          <Link to="/add-employee" className='btn btn-info text-light shadow'>Inserir funcionário</Link>
         </div>
         <table className='table table-hover text-center rounded shadow-lg overflow-hidden'>
           <thead className='table-secondary'>
@@ -38,12 +38,12 @@ const ListEmployeeComponent = () => {
               employees.map(
                 employee =>
                   <tr key={employee.id}>
-                    <td className='text-secondary'>{employee.id}</td>
-                    <td className='text-secondary text-start'>{employee.firstName}</td>
-                    <td className='text-secondary text-start'>{employee.lastName}</td>
-                    <td className='text-secondary text-start'>{employee.emailId}</td>
+                    <td className='text-secondary align-middle'>{employee.id}</td>
+                    <td className='text-secondary text-start align-middle'>{employee.firstName}</td>
+                    <td className='text-secondary text-start align-middle'>{employee.lastName}</td>
+                    <td className='text-secondary text-start align-middle'>{employee.emailId}</td>
                     <td>
-                      <Link className='btn btn-info' to={`/edit-employee/${employee.id}`}>Atualizar</Link>
+                      <Link className='btn btn-outline-warning btn-sm align-middle' to={`/edit-employee/${employee.id}`}>Atualizar</Link>
                     </td>
                   </tr>
               )
