@@ -101,8 +101,7 @@ const InsertEmployeeComponent = () => {
                     name='emailId'
                     className='form-control text-secondary'
                     value={emailId}
-                    onChange={(e) => setEmailId(e.target.value)}
-                  >
+                    onChange={(e) => setEmailId(e.target.value)}>
                   </input>
                 </div>
 
